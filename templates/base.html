@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    {% block navbar %}
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: red; 
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: black;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: red;
+  color: whites;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+</style>
+
+<div class="navbar">
+  <a href="{% url 'ttruckapp:home' %}">Home</a>
+  
+  <div class="subnav">
+    <button class="subnavbtn">Purchase <i class="fa fa-caret-down"></i>       		</button>
+    <div class="subnav-content">
+      <a href="{% url 'ttruckapp:package_orders' %}">Package orders</a>
+      <a href="{% url 'ttruckapp:package_product_purchases' %}">Package product purchases</a>
+      <a href="{% url 'ttruckapp:product_orders' %}">Product orders</a>
+      <a href="{% url 'ttruckapp:product_purchases' %}">Product purchases</a>
+    </div>
+  </div> 
+  
+  
+  <div class="subnav">
+    <button class="subnavbtn">Services <i class="fa fa-caret-down"></i>		     </button>
+    <div class="subnav-content">
+      <a href="{% url 'ttruckapp:package_products' %}">Package products</a>
+      <a href="{% url 'ttruckapp:packages' %}">Packages</a>
+      <a href="{% url 'ttruckapp:product_categorys' %}">Product categorys</a>
+      <a href="{% url 'ttruckapp:product_package_price_historys' %}">Product package price historys</a>
+      <a href="{% url 'ttruckapp:products' %}">Products</a>
+      
+    </div>
+  </div> 
+  
+  
+  <div class="subnav">
+    <button class="subnavbtn">Useraccount <i class="fa fa-caret-down"></i>			</button>
+    <div class="subnav-content">
+      <a href="{% url 'ttruckapp:blog_posts' %}">Blog posts</a>
+      <a href="{% url 'ttruckapp:email_otps' %}">Email otps</a>
+      <a href="{% url 'ttruckapp:profiles' %}">Profiles</a>
+      <a href="{% url 'ttruckapp:user_notifications' %}">User notifications</a>
+      <a href="{% url 'ttruckapp:users' %}">Users</a>
+      
+    </div>
+  </div>
+  <a href="{% url 'ttruckapp:form' %}">Add</a>
+</div>
+
+    {% endblock navbar%}
+
+
+
+
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
